@@ -1,0 +1,8 @@
+# code formatter
+black>=22.10.0
+
+# dependencies
+waffle_hub
+minio
+pyyaml>=6.0
+clearml
