@@ -6,18 +6,19 @@ from clearml import StorageManager, Dataset
 try:
     dataset = Dataset.get(
         dataset_project='Public',
-        dataset_name='FireDataset'
+        dataset_name='Smoke'
     )
 except:
     dataset = Dataset.create(
-        dataset_project="Public", dataset_name="FireDataset"
+        dataset_project="Public", dataset_name="Smoke"
     )
-
+# dataset.add_external_files(source_url="s3://my_bucket/stuff/file.jpg", dataset_path="/my_dataset/new_folder/")
 dataset.add_files(
-  path="/Users/ijongjin/workspace/dataset/Iwest_SmokeDataset_v1.0.0/"
+  path="/home/ljj/data/Iwest_SmokeDataset_v1.0.0"
 )
 
-dataset.upload(show_progress=True, verbose=False, output_url="s3://192.168.0.51:9000/MLTeam/Dataset/clearml/", compression=None, chunk_size=None, max_workers=None, retries=3)
+dataset.upload(show_progress= True, verbose= False, output_url= 's3://snuailab-asri.iptime.org:9000/clearml', compression= None)
+# dataset.upload()
 # Upload dataset to ClearML server (customizable)
 
 # commit dataset changes
