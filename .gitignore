@@ -21,3 +21,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+**/*.jpg
+**/*.png
+waffle_run
+*.pt
