@@ -1,12 +1,12 @@
 import os
 import sys
 sys.path.append(os.getcwd())
-from callbacks import train_callbacks
+from waffle_factory.utils.callbacks import clearml_logs
 from ultralytics import YOLO
 
 def trainer():
     model = YOLO("yolov8m.pt", task="detect")
-    model.callbacks = train_callbacks()
+    model.callbacks = clearml_logs()
     model.train(
         data="/home/ljj/waffle/datasets//Iwest_SmokeDataset_v1.0.0/exports/YOLO/data.yaml",
         epochs=200,
