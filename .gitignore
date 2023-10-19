@@ -24,3 +24,6 @@ dmypy.json
 **/*.jpg
 **/*.png
 *.pt
+
+**/*.mp4
+runs

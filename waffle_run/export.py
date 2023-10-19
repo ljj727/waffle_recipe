@@ -1,6 +1,6 @@
 from waffle_hub.hub import Hub
 
-name = "Falldown_v1.0.0"
+name = "MaskCls_v2.0.0"
 
 hub = Hub.load(name=name)
 
