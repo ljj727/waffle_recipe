@@ -24,6 +24,9 @@ dmypy.json
 **/*.jpg
 **/*.png
 *.pt
+*.pth
 
 **/*.mp4
 runs
+
+temp/gdd/GroundingDINO

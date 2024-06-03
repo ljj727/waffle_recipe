@@ -1,9 +1,5 @@
-# code formatter
-black>=22.10.0
-
-# dependencies
-# waffle_hub
-minio
-pyyaml>=6.0
-boto3>1.9
-clearml
+python-dotenv
+waffle-utils==1.1.0
+waffle_hub
+dvc[all]
+tqdm
