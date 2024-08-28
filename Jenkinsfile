@@ -15,6 +15,7 @@ pipeline {
           agent any
           steps {
             echo 'Bulid Docker'
+            echo "Building Docker image with name: ${imagename} and version: ${version}"  
             script {
                 dockerImage = docker.build("${imagename}:${version}", "--no-cache .")
             }
