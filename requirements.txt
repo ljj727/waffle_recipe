@@ -1,5 +1,2 @@
-python-dotenv
-waffle-utils==1.1.0
-waffle_hub
-dvc[all]
-tqdm
+fastapi
+uvicorn

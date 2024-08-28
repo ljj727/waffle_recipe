@@ -1,0 +1,17 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Docker/Dockerfile
+    container_name: jenkins-api
+    volumes:
+      - .:/app
+    ports:
+      - "5005:5005"
+    command: uvicorn run:app --host 0.0.0.0 --port 5005
+    restart: unless-stopped  # 이 부분을 추가하여 자동 재시작을 설정하세요
+
+
+networks:
+  traefik:
+    external: true
