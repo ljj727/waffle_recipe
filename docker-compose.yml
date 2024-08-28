@@ -1,9 +1,10 @@
 services:
   api:
-    build:
-      context: .
-      dockerfile: Docker/Dockerfile
-    container_name: jenkins-api
+    # build:
+    #   context: .
+    #   dockerfile: Docker/Dockerfile
+    image: fastapi-torch:${tag}
+    container_name: fast-api
     volumes:
       - .:/app
     ports:
