@@ -8,7 +8,7 @@ pipeline {
           agent any
           steps {
             echo 'Bulid Docker'
-            sh 'tag=${version} docker-compose build'
+            sh 'tag=${version} docker compose build'
           }
           post {
             failure {
@@ -20,7 +20,7 @@ pipeline {
           agent any
           steps {
             echo 'Deploy Docker '
-            sh 'tag=${version} docker-compose up -d'
+            sh 'tag=${version} docker compose up -d'
           }
           post {
             failure {
