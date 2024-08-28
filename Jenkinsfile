@@ -16,9 +16,10 @@ pipeline {
           steps {
             echo 'Bulid Docker'
             echo "Building Docker image with name: ${imagename} and version: ${version}"  
-            script {
-                dockerImage = docker.build("${imagename}:${version}", "--no-cache .")
-            }
+            sh 'docker-compose build'
+            // script {
+            //     dockerImage = docker.build("${imagename}:${version}", "--no-cache .")
+            // }
           }
           post {
             failure {
@@ -32,7 +33,7 @@ pipeline {
           agent any
           steps {
             echo 'Deploy Docker '
-            sh 'tag=${version} docker-compose up -d'
+            sh 'docker-compose up -d'
           }
           post {
             failure {

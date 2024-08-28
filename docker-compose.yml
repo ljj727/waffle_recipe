@@ -1,12 +1,9 @@
 services:
   api:
-    # build:
-    #   context: .
-    #   dockerfile: Docker/Dockerfile
-    image: fastapi-torch:${tag}
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: fast-api
-    volumes:
-      - .:/app
     ports:
       - "5005:5005"
     command: uvicorn run:app --host 0.0.0.0 --port 5005
