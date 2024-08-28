@@ -1,12 +1,16 @@
-from recipe.dataset import Ingredients
+
+from fastapi import FastAPI
 
 
-Ingredients.init("./data")
-# a = Ingredients(repo="./data")
-# a.init()
+#
+app = FastAPI(title="Test", description="TestTest")
 
-# a.list()
-# 
-# a.select('ref-Iwest_v1.1.0')
-# a.download()
-# a.reproduce()
+@app.get("/")
+def root():
+    return {"message": "Hello World"}
+
+@app.get("/home")
+def home():
+    return {"message": "Home"}
+
+
