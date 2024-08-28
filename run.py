@@ -14,3 +14,7 @@ def home():
     return {"message": "Home"}
 
 
+@app.get("/al")
+def al():
+    return {"message": "al"}
+
