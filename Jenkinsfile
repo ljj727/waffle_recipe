@@ -17,12 +17,11 @@ pipeline {
           }
         }
         stage('Stop and Remove Existing Containers') {  
-            steps {  
-                script {  
-                    // 기존 컨테이너 중지 및 제거  
-                    sh 'tag=${version} docker-compose down || true'  
-                }  
-            }  
+          agent any
+          steps {
+            echo 'Container Stop Docker '
+            sh 'tag=${version} docker compose down'
+          }
         }  
         stage('Deploy Docker') {
           agent any
