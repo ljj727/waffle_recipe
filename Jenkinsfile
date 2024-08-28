@@ -16,6 +16,14 @@ pipeline {
             }
           }
         }
+        stage('Stop and Remove Existing Containers') {  
+            steps {  
+                script {  
+                    // 기존 컨테이너 중지 및 제거  
+                    sh 'docker-compose down || true'  
+                }  
+            }  
+        }  
         stage('Deploy Docker') {
           agent any
           steps {
