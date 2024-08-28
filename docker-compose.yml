@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: Docker/Dockerfile
+    image: fastapi-torch:${tag:-latest}
     container_name: fast-api
     ports:
       - "5005:5005"
