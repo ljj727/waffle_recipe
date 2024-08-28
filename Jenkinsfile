@@ -20,7 +20,7 @@ pipeline {
             steps {  
                 script {  
                     // 기존 컨테이너 중지 및 제거  
-                    sh 'docker-compose down || true'  
+                    sh 'tag=${version} docker-compose down || true'  
                 }  
             }  
         }  
