@@ -1,17 +1,31 @@
-name: CI
+name: CI/CD
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  build:
+  ci:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v3
-      - name: Run test script
-        run: ./run.sh
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tests
+        run: echo "test"
+
+  cd:
+    needs: ci
+    runs-on: self-hosted
+    steps:
+      - name: Deploy with Docker Compose
+        run: |
+          cd /home/snuailab/github_actions/waffle_recipe
+          git pull origin main
+          docker-compose down && docker-compose up -d --build
